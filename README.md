@@ -48,7 +48,7 @@ ________________________________________
 1. Clona el repositorio
 bash
 CopiarEditar
-git clone https://github.com/tu_usuario/todolist.git
+git clone https://github.com/MartinezJhef/ToDoList.git
 cd todolist
 2. Crea un entorno virtual (opcional pero recomendado)
 bash
