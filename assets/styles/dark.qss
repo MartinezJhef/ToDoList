@@ -1,0 +1,92 @@
+/* Estilo oscuro básico para la aplicación To-Do List */
+
+QMainWindow {
+    background-color: #2b2b2b;
+}
+
+QLabel {
+    color: #ffffff;
+    background-color: #3c3f41;
+    font-size: 18px;
+}
+
+QLineEdit {
+    background-color: #3c3f41;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+QTextEdit {
+    background-color: #3c3f41;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+QDateEdit {
+    background-color: #3c3f41;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Botones con colores personalizados */
+QPushButton#btn_add {
+    background-color: #28a745;  /* Verde */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_add:hover {
+    background-color: #3ec24e;
+}
+
+QPushButton#btn_update {
+    background-color: #007bff; /* Azul */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_update:hover {
+    background-color: #339cff;
+}
+
+QPushButton#btn_delete {
+    background-color: #dc3545; /* Rojo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_delete:hover {
+    background-color: #e85c68;
+}
+
+QPushButton#btn_filter {
+    background-color: #ffbf00; /* Amarillo oro */
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_filter:hover {
+    background-color: #ffd633;
+}
+
+QListWidget {
+    background-color: #3c3f41;
+    color: #ffffff;
+    border: 1px solid #555555;
+    border-radius: 5px;
+}
+
+QListWidget::item:selected {
+    background-color: #4b6eaf;
+    color: #ffffff;
+}
+
+QMessageBox {
+    background-color: #2b2b2b;
+    color: #eeeeee;
+}

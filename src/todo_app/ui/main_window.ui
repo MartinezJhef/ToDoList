@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>To-Do List</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    
+    <!-- Espaciado superior -->
+    <item>
+     <spacer name="spacer_top">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+
+    
+    <item>
+     <layout class="QHBoxLayout" name="horizontalInputLayout">
+      <item>
+       <widget class="QLineEdit" name="input_title">
+        <property name="placeholderText">
+         <string>Título de la tarea</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="input_description">
+        <property name="placeholderText">
+            <string>Descripción de la tarea</string>
+        </property>
+        <property name="maximumWidth">
+            <number>150</number> 
+        </property>
+        <property name="minimumWidth">
+            <number>100</number> 
+        </property>
+        <property name="minimumHeight">
+            <number>40</number> 
+        </property>
+        <property name="maximumHeight">
+            <number>60</number> 
+        </property>
+        </widget>
+
+      </item>
+      <item>
+       <widget class="QDateEdit" name="input_due_date">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Botones -->
+    <item>
+     <layout class="QHBoxLayout" name="buttonLayout">
+      <item>
+       <widget class="QPushButton" name="btn_add">
+        <property name="text">
+         <string>Agregar ➕</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_update">
+        <property name="text">
+         <string>Actualizar 🔄</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_delete">
+        <property name="text">
+         <string>Eliminar ❌</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_filter">
+        <property name="text">
+         <string>Filtrar por fecha 📆</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Lista de tareas -->
+    <item>
+     <widget class="QListWidget" name="list_tasks"/>
+    </item>
+
+   </layout>
+  </widget>
+  <layoutdefault spacing="6" margin="11"/>
+  <resources/>
+  <connections/>
+ </widget>
+</ui>
