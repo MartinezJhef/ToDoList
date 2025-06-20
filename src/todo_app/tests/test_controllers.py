@@ -13,8 +13,8 @@ Se utiliza una base de datos SQLite en memoria para evitar afectar datos reales.
 
 import unittest
 from datetime import date
-from todo_app.models import Base, Task
-from todo_app.controllers import TaskController
+from todo_app.models.models import Base, Task
+from todo_app.repositories.controllers import TaskController
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -58,9 +58,10 @@ class TaskControllerTestCase(unittest.TestCase):
         self.controller.add_task("Tarea 1", "Desc", date.today())
         self.controller.add_task("Tarea 2", "Desc", date.today())
         tasks = self.controller.get_tasks()
-        self.assertEqual(len(tasks), 3)  # Error intencional
+        self.assertEqual(len(tasks), 3)  
 
     def test_update_task(self):
+        
         """
         Verifica que se pueda actualizar una tarea existente correctamente.
         """

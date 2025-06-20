@@ -1,7 +1,7 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QListWidgetItem, QMessageBox
 from PyQt5.QtCore import QDate
-from todo_app.controllers import TaskController
+from todo_app.repositories.controllers import TaskController
 from datetime import datetime
 import os
 
@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
         ui_path = os.path.join(os.path.dirname(__file__), 'ui', 'main_window.ui')
         uic.loadUi(ui_path, self)
         self.controller = TaskController()
-        self.input_due_date.setDate(QDate(2025, 6, 6))
+        self.input_due_date.setDate(QDate(2025, 6, 20))
 
         self.btn_add.clicked.connect(self.create_task)
         self.btn_update.clicked.connect(self.update_task)
