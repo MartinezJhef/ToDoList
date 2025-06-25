@@ -1,27 +1,54 @@
+"""
+Modelos de datos para la aplicación de gestión de tareas.
+
+Este módulo define las entidades: Tarea, Recordatorio y PreferenciasUsuario,
+utilizando SQLAlchemy para mapearlas a una base de datos SQLite.
+"""
+
 from sqlalchemy import (
-    Column, Integer, String, DateTime, Date, Boolean, Enum, ForeignKey
+    Column, Integer, String, DateTime, Date, Boolean, Enum, ForeignKey, create_engine
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine
-import enum
 from datetime import datetime
+import enum
 
+# Base de datos ORM
 Base = declarative_base()
 
-# ---------- ENUMS ----------
+
 class NivelPrioridad(enum.Enum):
+    """Enum que representa los niveles de prioridad de una tarea."""
     baja = "Baja"
     media = "Media"
     alta = "Alta"
 
+
 class Categoria(enum.Enum):
+    """Enum que representa las categorías posibles de una tarea."""
     trabajo = "Trabajo"
     hogar = "Hogar"
     estudio = "Estudio"
 
-# ---------- TAREA ----------
+
 class Tarea(Base):
+    """
+    Modelo que representa una tarea del usuario.
+
+    Atributos:
+        id (int): Identificador único de la tarea.
+        titulo (str): Título de la tarea.
+        descripcion (str): Descripción opcional.
+        fecha_vencimiento (date): Fecha límite de la tarea.
+        completada (bool): Estado de finalización.
+        prioridad (NivelPrioridad): Nivel de prioridad.
+        categoria (Categoria): Categoría asociada.
+        favorita (bool): Indicador si es favorita.
+        eliminada (bool): Indicador si fue eliminada.
+        creada_en (datetime): Fecha de creación.
+        actualizada_en (datetime): Última fecha de modificación.
+        recordatorios (List[Recordatorio]): Lista de recordatorios vinculados.
+    """
     __tablename__ = 'tareas'
 
     id = Column(Integer, primary_key=True)
@@ -37,10 +64,24 @@ class Tarea(Base):
     creada_en = Column(DateTime, default=datetime.utcnow)
     actualizada_en = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    recordatorios = relationship("Recordatorio", back_populates="tarea", cascade="all, delete-orphan")
+    recordatorios = relationship(
+        "Recordatorio",
+        back_populates="tarea",
+        cascade="all, delete-orphan"
+    )
 
-# ---------- RECORDATORIO ----------
+
 class Recordatorio(Base):
+    """
+    Modelo que representa un recordatorio asociado a una tarea.
+
+    Atributos:
+        id (int): Identificador único.
+        tarea_id (int): ID de la tarea a la que pertenece.
+        fecha_hora (datetime): Fecha y hora del recordatorio.
+        notificado (bool): Indicador de si ya fue notificado.
+        tarea (Tarea): Objeto de la tarea asociada.
+    """
     __tablename__ = 'recordatorios'
 
     id = Column(Integer, primary_key=True)
@@ -50,8 +91,17 @@ class Recordatorio(Base):
 
     tarea = relationship("Tarea", back_populates="recordatorios")
 
-# ---------- PREFERENCIAS ----------
+
 class PreferenciasUsuario(Base):
+    """
+    Modelo que representa las preferencias del usuario.
+
+    Atributos:
+        id (int): Identificador único.
+        idioma (str): Idioma preferido del usuario.
+        tema (str): Tema visual (claro/oscuro).
+        notificaciones_activadas (bool): Preferencia de notificaciones.
+    """
     __tablename__ = 'preferencias_usuario'
 
     id = Column(Integer, primary_key=True)
@@ -59,7 +109,8 @@ class PreferenciasUsuario(Base):
     tema = Column(String, default="claro")
     notificaciones_activadas = Column(Boolean, default=True)
 
-# ---------- CONFIGURACIÓN DE BASE DE DATOS ----------
+
+# Configuración de la base de datos SQLite
 engine = create_engine('sqlite:///tareas.db')
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
