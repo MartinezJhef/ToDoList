@@ -43,17 +43,20 @@ class TaskService:
         """
         return self.controller.get_tasks(include_deleted)
 
-    def update_task(self, task_id, title=None, description=None, due_date=None):
+    def update_task(self, task_id, title=None, description=None, due_date=None, prioridad=None, categoria=None):
         """
-        Actualizar título, descripción o fecha de una tarea (HU018).
+        Actualizar título, descripción, fecha, prioridad o categoría de una tarea (HU018).
 
         Args:
             task_id (int): ID de la tarea.
             title (str): Nuevo título.
             description (str): Nueva descripción.
             due_date (date): Nueva fecha de vencimiento.
+            prioridad (str): Nueva prioridad ('baja', 'media', 'alta').
+            categoria (str): Nueva categoría ('trabajo', 'hogar', 'estudio').
         """
-        self.controller.update_task(task_id, title, description, due_date)
+        self.controller.update_task(task_id, title, description, due_date, prioridad, categoria)
+
 
     def delete_task(self, task_id):
         """

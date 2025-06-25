@@ -51,9 +51,44 @@ QPushButton#btn_update {
 QPushButton#btn_update:hover {
     background-color: #339cff;
 }
+QComboBox#toolTip{
+    background-color: #3c3f41;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+QComboBox#input_priority{
+    background-color: #3c3f41;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+QComboBox#input_category{
+    background-color: #3c3f41;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+
+}
 
 QPushButton#btn_delete {
     background-color: #dc3545; /* Rojo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_complete {
+    background-color: #c721dd; /* Rojo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_favorite {
+    background-color: #ff810b; /* Rojo */
     color: #ffffff;
     border: none;
     border-radius: 5px;

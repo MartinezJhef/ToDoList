@@ -54,15 +54,17 @@ class TaskController:
             query = query.filter(Task.eliminada.is_(False))
         return query.all()
 
-    def update_task(self, task_id, title=None, description=None, due_date=None):
+    def update_task(self, task_id, title=None, description=None, due_date=None, prioridad=None, categoria=None):
         """
-        Actualizar título, descripción o fecha de una tarea (HU018).
+        Actualiza los campos de una tarea existente (incluye prioridad y categoría).
 
         Args:
             task_id (int): ID de la tarea.
             title (str): Nuevo título.
             description (str): Nueva descripción.
             due_date (date): Nueva fecha de vencimiento.
+            prioridad (str): Nueva prioridad ('baja', 'media', 'alta').
+            categoria (str): Nueva categoría ('trabajo', 'hogar', 'estudio').
         """
         task = self.session.query(Task).get(task_id)
         if task and not task.eliminada:
@@ -72,7 +74,12 @@ class TaskController:
                 task.descripcion = description
             if due_date:
                 task.fecha_vencimiento = due_date
+            if prioridad:
+                task.prioridad = NivelPrioridad[prioridad]
+            if categoria:
+                task.categoria = Categoria[categoria]
             self.session.commit()
+
 
     def delete_task(self, task_id):
         """

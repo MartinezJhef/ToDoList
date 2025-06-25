@@ -7,25 +7,12 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
-    
-    <!-- Espaciado superior -->
-    <item>
-     <spacer name="spacer_top">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
 
-    
+    <!-- 🔹 Sección de entrada de datos -->
     <item>
      <layout class="QHBoxLayout" name="horizontalInputLayout">
+
+      <!-- Título -->
       <item>
        <widget class="QLineEdit" name="input_title">
         <property name="placeholderText">
@@ -33,26 +20,17 @@
         </property>
        </widget>
       </item>
+
+      <!-- Descripción -->
       <item>
        <widget class="QTextEdit" name="input_description">
         <property name="placeholderText">
-            <string>Descripción de la tarea</string>
+         <string>Descripción de la tarea</string>
         </property>
-        <property name="maximumWidth">
-            <number>150</number> 
-        </property>
-        <property name="minimumWidth">
-            <number>100</number> 
-        </property>
-        <property name="minimumHeight">
-            <number>40</number> 
-        </property>
-        <property name="maximumHeight">
-            <number>60</number> 
-        </property>
-        </widget>
-
+       </widget>
       </item>
+
+      <!-- Fecha de vencimiento -->
       <item>
        <widget class="QDateEdit" name="input_due_date">
         <property name="calendarPopup">
@@ -60,44 +38,83 @@
         </property>
        </widget>
       </item>
+
+      <!-- Prioridad -->
+      <item>
+       <widget class="QComboBox" name="input_priority">
+        <property name="toolTip">
+         <string>Prioridad de la tarea</string>
+        </property>
+        <item><property name="text"><string>Baja</string></property></item>
+        <item><property name="text"><string>Media</string></property></item>
+        <item><property name="text"><string>Alta</string></property></item>
+       </widget>
+      </item>
+
+      <!-- Categoría -->
+      <item>
+       <widget class="QComboBox" name="input_category">
+        <property name="toolTip">
+         <string>Categoría de la tarea</string>
+        </property>
+        <item><property name="text"><string>Trabajo</string></property></item>
+        <item><property name="text"><string>Hogar</string></property></item>
+        <item><property name="text"><string>Estudio</string></property></item>
+       </widget>
+      </item>
+
      </layout>
     </item>
 
-    <!-- Botones -->
+    <!-- 🔹 Botones de acciones -->
     <item>
      <layout class="QHBoxLayout" name="buttonLayout">
+
       <item>
        <widget class="QPushButton" name="btn_add">
-        <property name="text">
-         <string>Agregar ➕</string>
-        </property>
+        <property name="text"><string>Agregar ➕</string></property>
        </widget>
       </item>
+
       <item>
        <widget class="QPushButton" name="btn_update">
-        <property name="text">
-         <string>Actualizar 🔄</string>
-        </property>
+        <property name="text"><string>Actualizar 🔄</string></property>
        </widget>
       </item>
+
       <item>
        <widget class="QPushButton" name="btn_delete">
-        <property name="text">
-         <string>Eliminar ❌</string>
-        </property>
+        <property name="text"><string>Eliminar ❌</string></property>
        </widget>
       </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_complete">
+        <property name="text"><string>Marcar Completada ✅</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_favorite">
+        <property name="text"><string>Marcar Favorita ⭐</string></property>
+       </widget>
+      </item>
+
+     </layout>
+    </item>
+
+    <!-- 🔹 Filtro por fecha -->
+    <item>
+     <layout class="QHBoxLayout" name="filterLayout">
       <item>
        <widget class="QPushButton" name="btn_filter">
-        <property name="text">
-         <string>Filtrar por fecha 📆</string>
-        </property>
+        <property name="text"><string>Filtrar por fecha 📆</string></property>
        </widget>
       </item>
      </layout>
     </item>
 
-    <!-- Lista de tareas -->
+    <!-- 🔹 Lista de tareas -->
     <item>
      <widget class="QListWidget" name="list_tasks"/>
     </item>
