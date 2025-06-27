@@ -11,6 +11,7 @@ Historias de Usuario: HU005 - HU018
 from todo_app.repositories.controllers import TaskController
 from todo_app.models.models import Tarea
 
+
 class TaskService:
     """Servicio que encapsula las operaciones de negocio sobre tareas."""
 
@@ -43,7 +44,8 @@ class TaskService:
         """
         return self.controller.get_tasks(include_deleted)
 
-    def update_task(self, task_id, title=None, description=None, due_date=None, prioridad=None, categoria=None):
+    def update_task(self, task_id, title=None, description=None,
+                    due_date=None, prioridad=None, categoria=None):
         """
         Actualizar título, descripción, fecha, prioridad o categoría de una tarea (HU018).
 
@@ -56,7 +58,6 @@ class TaskService:
             categoria (str): Nueva categoría ('trabajo', 'hogar', 'estudio').
         """
         self.controller.update_task(task_id, title, description, due_date, prioridad, categoria)
-
 
     def delete_task(self, task_id):
         """
@@ -120,13 +121,22 @@ class TaskService:
             list: Lista de tareas que coincidan con la búsqueda.
         """
         return self.controller.search_tasks(keyword)
-    def restore_task(self, task_id):
-        self.controller.restore_task(task_id)
 
     def permanently_delete_task(self, task_id):
-        """Elimina una tarea de la base de datos de forma permanente."""
+        """
+        Elimina una tarea de la base de datos de forma permanente.
+
+        Args:
+            task_id (int): ID de la tarea a eliminar.
+        """
         self.controller.session.query(Tarea).filter_by(id=task_id).delete()
         self.controller.session.commit()
 
     def get_favorite_tasks(self):
-        return self.session.query(Tarea).filter_by(is_favorite=True).all()
+        """
+        Obtener tareas marcadas como favoritas.
+
+        Returns:
+            list: Lista de tareas favoritas.
+        """
+        return self.controller.session.query(Tarea).filter_by(favorita=True).all()
