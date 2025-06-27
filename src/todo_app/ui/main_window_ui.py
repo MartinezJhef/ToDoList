@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_window.ui'
+# Form implementation generated from reading ui file 'e:\todolist\src\todo_app\ui\main_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -93,13 +93,3 @@ class Ui_MainWindow(object):
         self.btn_complete.setText(_translate("MainWindow", "Marcar Completada ✅"))
         self.btn_favorite.setText(_translate("MainWindow", "Marcar Favorita ⭐"))
         self.btn_filter.setText(_translate("MainWindow", "Filtrar por fecha 📆"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

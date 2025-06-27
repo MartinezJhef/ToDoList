@@ -1,127 +1,112 @@
-/* Estilo oscuro básico para la aplicación To-Do List */
+/* Estilo personalizado con paleta suave y moderna */
 
 QMainWindow {
-    background-color: #2b2b2b;
+    background-color: #89687D; /* Morado oscuro */
 }
 
 QLabel {
-    color: #ffffff;
-    background-color: #3c3f41;
+    color: #FFF7EC;
+    background-color: transparent;
     font-size: 18px;
 }
 
-QLineEdit {
-    background-color: #3c3f41;
-    color: #ffffff;
+QLineEdit, QTextEdit, QDateEdit {
+    background-color: #FCD8CC; /* Salmón claro */
+    color: #2b2b2b;
     border-radius: 5px;
     padding: 5px;
-}
-QTextEdit {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-}
-QDateEdit {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #89687D;
 }
 
-/* Botones con colores personalizados */
+QTextEdit {
+    font-size: 12px;
+}
+
+QComboBox#toolTip, 
+QComboBox#input_priority, 
+QComboBox#input_category {
+    background-color: #FCD8CC;
+    color: #2b2b2b;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #89687D;
+}
+
+/* Botones personalizados con estilo pastel */
+
 QPushButton#btn_add {
-    background-color: #28a745;  /* Verde */
-    color: #ffffff;
+    background-color: #A7E0E9;
+    color: #2b2b2b;
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
 }
 QPushButton#btn_add:hover {
-    background-color: #3ec24e;
+    background-color: #89cedb;
 }
 
 QPushButton#btn_update {
-    background-color: #007bff; /* Azul */
-    color: #ffffff;
+    background-color: #89687D;
+    color: #FFF7EC;
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
 }
 QPushButton#btn_update:hover {
-    background-color: #339cff;
-}
-QComboBox#toolTip{
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-
-}
-QComboBox#input_priority{
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-
-}
-QComboBox#input_category{
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-
+    background-color: #a07d91;
 }
 
 QPushButton#btn_delete {
-    background-color: #dc3545; /* Rojo */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_complete {
-    background-color: #c721dd; /* Rojo */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_favorite {
-    background-color: #ff810b; /* Rojo */
-    color: #ffffff;
+    background-color: #FCD8CC;
+    color: #2b2b2b;
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
 }
 QPushButton#btn_delete:hover {
-    background-color: #e85c68;
+    background-color: #fbb0a2;
+}
+
+QPushButton#btn_complete {
+    background-color: #A7E0E9;
+    color: #2b2b2b;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+QPushButton#btn_favorite {
+    background-color: #FFF7EC;
+    color: #89687D;
+    border: 1px solid #89687D;
+    border-radius: 5px;
+    padding: 8px 12px;
 }
 
 QPushButton#btn_filter {
-    background-color: #ffbf00; /* Amarillo oro */
-    color: #000000;
+    background-color: #FCD8CC;
+    color: #2b2b2b;
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
 }
 QPushButton#btn_filter:hover {
-    background-color: #ffd633;
+    background-color: #ffe0d1;
 }
 
 QListWidget {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border: 1px solid #555555;
+    background-color: #FFF7EC;
+    color: #2b2b2b;
+    border: 1px solid #89687D;
     border-radius: 5px;
 }
 
 QListWidget::item:selected {
-    background-color: #4b6eaf;
-    color: #ffffff;
+    background-color: #A7E0E9;
+    color: #2b2b2b;
 }
 
 QMessageBox {
-    background-color: #2b2b2b;
-    color: #eeeeee;
+    background-color: #89687D;
+    color: #FFF7EC;
 }
