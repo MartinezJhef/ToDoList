@@ -84,16 +84,39 @@ Se abrirá la ventana principal para comenzar a gestionar tus tareas.
 
 ---
 
-## 🧪 Ejecutar Pruebas Unitarias
+---
+
+## 🧪 Pruebas Unitarias
+
+El módulo `test_controllers.py` cubre exhaustivamente la lógica del controlador de tareas (`TaskController`), utilizando una base de datos SQLite en memoria para asegurar un entorno aislado de prueba.
+
+### ✅ Funcionalidades Probadas
+
+- **Crear tareas:** Inserción y validación de atributos básicos.
+- **Leer tareas:** Recuperación de una o múltiples tareas.
+- **Actualizar tareas:** Modificación de título, descripción, fecha, prioridad y categoría.
+- **Eliminar tareas:** Eliminación lógica y restauración de tareas.
+- **Completar tareas:** Cambio de estado a completada.
+- **Marcar como favorita:** Activar y desactivar bandera de favorito.
+- **Buscar por palabra clave:** Búsqueda en título y descripción.
+- **Filtrado avanzado:** Por estado (`pendientes`, `completadas`), prioridad y categoría.
+- **Manejo de casos especiales:**
+  - Restauración de tareas no eliminadas.
+  - Creación sin categoría.
+  - Filtro por categoría exclusiva.
+
+### 📌 Ejecución de pruebas
+
+Desde el directorio `src`, ejecuta:
 
 ```bash
-cd src
 python -m todo_app.tests.test_controllers
 ```
 
-Esto ejecutará las pruebas CRUD sobre tareas, utilizando una base de datos SQLite temporal en memoria.
+Esto ejecutará todos los casos usando una base de datos en memoria (`sqlite:///:memory:`), sin afectar tus datos reales.
 
 ---
+
 
 ## 🧱 Estructura de la Base de Datos (Resumen)
 
