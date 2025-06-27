@@ -128,6 +128,11 @@ class TaskService:
         self.controller.session.query(Tarea).filter_by(id=task_id).delete()
         self.controller.session.commit()
 
+    def get_favorite_tasks(self):
+        return self.session.query(Tarea).filter_by(is_favorite=True).all()
+
+    
+ 
 
 
 

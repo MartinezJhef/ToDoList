@@ -21,7 +21,6 @@ class MainWindow(QMainWindow):
         self.btn_add.clicked.connect(self.create_task)
         self.btn_update.clicked.connect(self.update_task)
         self.btn_delete.clicked.connect(self.delete_task)
-        self.btn_filter.clicked.connect(self.filter_tasks)
         self.btn_complete.clicked.connect(self.complete_task)
         self.btn_favorite.clicked.connect(self.favorite_task)
         self.btn_restore.clicked.connect(self.restore_task)
@@ -31,13 +30,7 @@ class MainWindow(QMainWindow):
         self.btn_show_pending.clicked.connect(self.show_pending_tasks)
         self.btn_show_high.clicked.connect(lambda: self.show_tasks_by_priority('alta'))
         self.btn_show_medium.clicked.connect(lambda: self.show_tasks_by_priority('media'))
-        self.btn_show_low.clicked.connect(lambda: self.show_tasks_by_priority('baja'))
-
-
-
-
-
-        
+        self.btn_show_low.clicked.connect(lambda: self.show_tasks_by_priority('baja'))    
 
 
         self.load_tasks()
@@ -99,11 +92,8 @@ class MainWindow(QMainWindow):
         self.service.delete_task(task_id)
         self.load_tasks()
 
-    def filter_tasks(self):
-        date = self.input_due_date.date().toPyDate()
-        all_tasks = self.service.get_tasks()
-        filtered = [task for task in all_tasks if task.fecha_vencimiento == date]
-        self.load_tasks(filtered)
+
+
     def complete_task(self):
         item = self.list_tasks.currentItem()
         if item is None:
@@ -176,6 +166,12 @@ class MainWindow(QMainWindow):
         tasks = self.service.filter_tasks(prioridad=priority_level)
         self.load_tasks(tasks)
 
+
+
+
+
+
+   
 
 
 

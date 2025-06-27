@@ -95,8 +95,15 @@ QPushButton#btn_favorite {
     border-radius: 5px;
     padding: 8px 12px;
 }
+QPushButton#btn_show_pending {
+    background-color: #7bd4d4; /* Rojo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
 QPushButton#btn_delete:hover {
-    background-color: #e85c68;
+    background-color: #e66671;
 }
 
 QPushButton#btn_filter {
@@ -125,4 +132,11 @@ QListWidget::item:selected {
 QMessageBox {
     background-color: #2b2b2b;
     color: #eeeeee;
+}
+
+QLineEdit, QTextEdit {
+    min-width: 200px;
+}
+QDateEdit, QComboBox {
+    min-width: 150px;
 }
