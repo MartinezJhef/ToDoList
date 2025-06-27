@@ -27,6 +27,13 @@ class MainWindow(QMainWindow):
         self.btn_restore.clicked.connect(self.restore_task)
         self.btn_show_deleted.clicked.connect(self.show_deleted_tasks)
         self.btn_delete_forever.clicked.connect(self.permanently_delete_task)
+        self.btn_show_completed.clicked.connect(self.show_completed_tasks)
+        self.btn_show_pending.clicked.connect(self.show_pending_tasks)
+        self.btn_show_high.clicked.connect(lambda: self.show_tasks_by_priority('alta'))
+        self.btn_show_medium.clicked.connect(lambda: self.show_tasks_by_priority('media'))
+        self.btn_show_low.clicked.connect(lambda: self.show_tasks_by_priority('baja'))
+
+
 
 
 
@@ -128,6 +135,12 @@ class MainWindow(QMainWindow):
         deleted_tasks = self.service.get_tasks(include_deleted=True)
         only_deleted = [t for t in deleted_tasks if t.eliminada]
         self.load_tasks(only_deleted)
+
+    def show_completed_tasks(self):
+        """Muestra solo las tareas marcadas como completadas."""
+        completed_tasks = self.service.filter_tasks(estado="completadas")
+        self.load_tasks(completed_tasks)
+
     def clear_inputs(self):
         """Limpia los campos del formulario de entrada."""
         self.input_title.clear()
@@ -155,7 +168,14 @@ class MainWindow(QMainWindow):
             self.service.permanently_delete_task(task_id)
             self.show_deleted_tasks()
 
-    
+    def show_pending_tasks(self):
+        tasks = self.service.filter_tasks(estado="pendientes")
+        self.load_tasks(tasks)
+
+    def show_tasks_by_priority(self, priority_level):
+        tasks = self.service.filter_tasks(prioridad=priority_level)
+        self.load_tasks(tasks)
+
 
 
 

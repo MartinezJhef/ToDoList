@@ -88,14 +88,12 @@
        </widget>
       </item>
 
-      <!-- Restaurar -->
       <item>
        <widget class="QPushButton" name="btn_restore">
         <property name="text"><string>Restaurar ♻️</string></property>
        </widget>
       </item>
 
-      <!-- ✅ Nuevo botón: Eliminar definitivo -->
       <item>
        <widget class="QPushButton" name="btn_delete_forever">
         <property name="text"><string>Eliminar Definitivo 🗑️</string></property>
@@ -117,7 +115,7 @@
      </layout>
     </item>
 
-    <!-- 🔹 Filtro por fecha + Mostrar eliminadas -->
+    <!-- 🔹 Filtro por fecha + filtros avanzados -->
     <item>
      <layout class="QHBoxLayout" name="filterLayout">
 
@@ -127,10 +125,39 @@
        </widget>
       </item>
 
-      <!-- Botón para ver eliminadas -->
       <item>
        <widget class="QPushButton" name="btn_show_deleted">
         <property name="text"><string>Ver Eliminadas 🗑️</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_show_completed">
+        <property name="text"><string>Ver Completadas ✅</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_show_pending">
+        <property name="text"><string>Ver Pendientes 🔴</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_show_high">
+        <property name="text"><string>Alta ⚡</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_show_medium">
+        <property name="text"><string>Media ⚠️</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <widget class="QPushButton" name="btn_show_low">
+        <property name="text"><string>Baja 🐢</string></property>
        </widget>
       </item>
 
