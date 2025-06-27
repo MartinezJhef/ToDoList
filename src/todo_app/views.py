@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         uic.loadUi(ui_path, self)
 
         self.service = TaskService()
-        self.input_due_date.setDate(QDate(2025, 6, 25))
+        self.input_due_date.setDate(QDate(2025, 6, 27))
 
         self.btn_add.clicked.connect(self.create_task)
         self.btn_update.clicked.connect(self.update_task)

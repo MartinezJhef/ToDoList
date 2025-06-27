@@ -1,33 +1,30 @@
 """
 Módulo de pruebas unitarias para la clase TaskController.
 
-Estas pruebas cubren las operaciones CRUD y funcionalidades clave:
-- Crear una tarea
-- Obtener tareas
-- Actualizar una tarea
-- Eliminar una tarea
-- Restaurar tarea
-- Completar tarea
-- Marcar como favorita
+Estas pruebas cubren:
+- Crear, obtener, actualizar y eliminar tareas
+- Restaurar, completar, marcar como favorita
 - Buscar por palabra clave
-- Filtrar tareas
+- Filtrar por estado, prioridad y categoría
+- Casos adicionales como sin categoría o restaurar no eliminadas
 
-Se utiliza una base de datos SQLite en memoria para evitar afectar datos reales.
+Se usa una base SQLite en memoria.
 """
 
 import unittest
 from datetime import date
-from todo_app.models.models import Base, NivelPrioridad, Categoria
-from todo_app.repositories.controllers import TaskController
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+from todo_app.models.models import Base, NivelPrioridad, Categoria
+from todo_app.repositories.controllers import TaskController
+
 
 class TaskControllerTestCase(unittest.TestCase):
-    """Casos de prueba para la clase TaskController."""
+    """Casos de prueba para TaskController."""
 
     def setUp(self):
-        """Configura una base de datos SQLite en memoria antes de cada prueba."""
+        """Base de datos en memoria."""
         engine = create_engine('sqlite:///:memory:')
         Base.metadata.create_all(engine)
         TestingSession = sessionmaker(bind=engine)
@@ -37,7 +34,7 @@ class TaskControllerTestCase(unittest.TestCase):
         self.controller.session = self.session
 
     def tearDown(self):
-        """Cierra la sesión después de cada prueba."""
+        """Cierra la sesión."""
         self.session.close()
 
     def test_add_task(self):
@@ -95,6 +92,49 @@ class TaskControllerTestCase(unittest.TestCase):
         completadas = self.controller.filter_tasks(estado="pendientes", prioridad="alta")
         self.assertEqual(len(completadas), 1)
         self.assertEqual(completadas[0].prioridad, NivelPrioridad.alta)
+
+    # 🔁 PRUEBAS ADICIONALES
+
+    def test_restore_non_deleted_task(self):
+        """Restaurar tarea no eliminada no debe afectar nada."""
+        self.controller.add_task("Activa", "No eliminada", date.today())
+        task = self.controller.get_tasks()[0]
+        self.controller.restore_task(task.id)
+        task_restored = self.controller.get_tasks()[0]
+        self.assertFalse(task_restored.eliminada)
+
+    def test_update_priority_and_category(self):
+        """Actualizar prioridad y categoría."""
+        self.controller.add_task("Cambiar", "Test", date.today())
+        task = self.controller.get_tasks()[0]
+        self.controller.update_task(task.id, prioridad='alta', categoria='estudio')
+        updated = self.controller.get_tasks()[0]
+        self.assertEqual(updated.prioridad, NivelPrioridad.alta)
+        self.assertEqual(updated.categoria, Categoria.estudio)
+
+    def test_filter_by_category_only(self):
+        """Filtrar solo por categoría."""
+        self.controller.add_task("Estudiar", "Mate", date.today(), categoria='estudio')
+        self.controller.add_task("Limpiar", "Casa", date.today(), categoria='hogar')
+        filtered = self.controller.filter_tasks(categoria='hogar')
+        self.assertEqual(len(filtered), 1)
+        self.assertEqual(filtered[0].categoria, Categoria.hogar)
+
+    def test_add_task_without_category(self):
+        """Crear tarea sin categoría."""
+        self.controller.add_task("Sin categoría", "Prueba", date.today())
+        task = self.controller.get_tasks()[0]
+        self.assertIsNone(task.categoria)
+
+    def test_filter_by_completed_state(self):
+        """Filtrar tareas completadas."""
+        self.controller.add_task("Tarea A", "Desc", date.today())
+        self.controller.add_task("Tarea B", "Desc", date.today())
+        task_b = self.controller.get_tasks()[1]
+        self.controller.complete_task(task_b.id)
+        completadas = self.controller.filter_tasks(estado="completadas")
+        self.assertEqual(len(completadas), 1)
+        self.assertTrue(completadas[0].completada)
 
 
 if __name__ == '__main__':

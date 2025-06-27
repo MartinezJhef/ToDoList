@@ -1,142 +1,123 @@
-/* Estilo oscuro básico para la aplicación To-Do List */ 
-
 QMainWindow {
-    background-color: #2b2b2b;
+    background-color: #0B1D51;
 }
 
-QLabel {
-    color: #ffffff;
-    background-color: #3c3f41;
-    font-size: 18px;
+QLabel, QGroupBox, QListWidget, QMessageBox, QPushButton, QComboBox, QDateEdit {
+    color: #FFE3A9;
+    font-size: 16px;
 }
 
-QLineEdit {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-}
-QTextEdit {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 12px;
-}
-QDateEdit {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
+QLineEdit, QTextEdit, QComboBox, QDateEdit {
+    background-color: #725CAD;
+    color: #FFE3A9;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
 }
 
-/* Botones con colores personalizados */
-QPushButton#btn_add {
-    background-color: #28a745;  /* Verde */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_add:hover {
-    background-color: #3ec24e;
-}
-
-QPushButton#btn_update {
-    background-color: #007bff; /* Azul */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_update:hover {
-    background-color: #339cff;
-}
-QComboBox#toolTip{
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-
-}
-QComboBox#input_priority{
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-
-}
-QComboBox#input_category{
-    background-color: #3c3f41;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 5px;
-
-}
-
-QPushButton#btn_delete {
-    background-color: #dc3545; /* Rojo */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_complete {
-    background-color: #c721dd; /* Rojo */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_favorite {
-    background-color: #ff810b; /* Rojo */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_show_pending {
-    background-color: #7bd4d4; /* Rojo */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_delete:hover {
-    background-color: #e66671;
-}
-
-QPushButton#btn_filter {
-    background-color: #ffbf00; /* Amarillo oro */
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-}
-QPushButton#btn_filter:hover {
-    background-color: #ffd633;
+QLineEdit::placeholder,
+QTextEdit::placeholder {
+    color: #FFE3A9;
 }
 
 QListWidget {
-    background-color: #3c3f41;
-    color: #ffffff;
-    border: 1px solid #555555;
-    border-radius: 5px;
+    background-color: #725CAD;
+    color: #FFE3A9;
+    border-radius: 6px;
+    padding: 6px;
 }
 
 QListWidget::item:selected {
-    background-color: #4b6eaf;
-    color: #ffffff;
+    background-color: #8CCDEB;
+    color: #0B1D51;
+}
+
+QPushButton {
+    background-color: #8CCDEB;
+    color: #0B1D51;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #A0E1F5;
+}
+
+QPushButton#btn_delete,
+QPushButton#btn_delete_forever {
+    background-color: #FF5C5C;
+    color: #FFE3A9;
+}
+
+QPushButton#btn_delete:hover,
+QPushButton#btn_delete_forever:hover {
+    background-color: #FF7676;
+}
+
+QPushButton#btn_complete {
+    background-color: #57D785;
+    color: #0B1D51;
+}
+
+QPushButton#btn_complete:hover {
+    background-color: #6FE79A;
+}
+
+QPushButton#btn_favorite {
+    background-color: #FFD86E;
+    color: #0B1D51;
+}
+
+QPushButton#btn_favorite:hover {
+    background-color: #FFE3A9;
+}
+
+QPushButton#btn_filter,
+QPushButton#btn_show_deleted,
+QPushButton#btn_show_completed,
+QPushButton#btn_show_pending,
+QPushButton#btn_show_high,
+QPushButton#btn_show_medium,
+QPushButton#btn_show_low {
+    background-color: #8CCDEB;
+    color: #0B1D51;
+}
+
+QPushButton#btn_filter:hover,
+QPushButton#btn_show_deleted:hover,
+QPushButton#btn_show_completed:hover,
+QPushButton#btn_show_pending:hover,
+QPushButton#btn_show_high:hover,
+QPushButton#btn_show_medium:hover,
+QPushButton#btn_show_low:hover {
+    background-color: #A0E1F5;
+}
+
+QComboBox#input_priority,
+QComboBox#input_category {
+    background-color: #725CAD;
+    color: #FFE3A9;
+    border-radius: 6px;
+    padding: 6px;
 }
 
 QMessageBox {
-    background-color: #2b2b2b;
-    color: #eeeeee;
+    background-color: #725CAD;
+    color: #8CCDEB;
+    font-size: 16px;
 }
 
-QLineEdit, QTextEdit {
-    min-width: 200px;
+/* Botones dentro del QMessageBox */
+QMessageBox QPushButton {
+    background-color: #FFE3A9;
+    color: #0B1D51; /* O #725CAD si quieres mantener consistencia */
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: bold;
 }
-QDateEdit, QComboBox {
-    min-width: 150px;
+
+QMessageBox QPushButton:hover {
+    background-color: #FFF0C0; /* Versión más clara del botón */
 }

@@ -130,9 +130,3 @@ class TaskService:
 
     def get_favorite_tasks(self):
         return self.session.query(Tarea).filter_by(is_favorite=True).all()
-
-    
- 
-
-
-

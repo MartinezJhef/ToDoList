@@ -15,8 +15,6 @@
        <string>📋 Nueva Tarea</string>
       </property>
       <layout class="QHBoxLayout" name="formInputLayout">
-
-       <!-- Columna Izquierda -->
        <item>
         <layout class="QVBoxLayout" name="leftInputLayout">
          <item>
@@ -35,8 +33,6 @@
          </item>
         </layout>
        </item>
-
-       <!-- Columna Derecha -->
        <item>
         <layout class="QVBoxLayout" name="rightInputLayout">
          <item>
@@ -68,7 +64,6 @@
          </item>
         </layout>
        </item>
-
       </layout>
      </widget>
     </item>
@@ -79,14 +74,22 @@
       <property name="title">
        <string>⚙️ Acciones</string>
       </property>
-      <layout class="QHBoxLayout" name="buttonLayout">
-       <item><widget class="QPushButton" name="btn_add"><property name="text"><string>Agregar ➕</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_update"><property name="text"><string>Actualizar 🔄</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_delete"><property name="text"><string>Eliminar ❌</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_restore"><property name="text"><string>Restaurar ♻️</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_delete_forever"><property name="text"><string>Eliminar Definitivo 🗑️</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_complete"><property name="text"><string>Marcar Completada ✅</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_favorite"><property name="text"><string>Marcar Favorita ⭐</string></property></widget></item>
+      <layout class="QVBoxLayout" name="buttonMainLayout">
+       <item>
+        <layout class="QHBoxLayout" name="buttonTopLayout">
+         <item><widget class="QPushButton" name="btn_add"><property name="text"><string>Agregar ➕</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_update"><property name="text"><string>Actualizar 🔄</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_delete"><property name="text"><string>Eliminar ❌</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_restore"><property name="text"><string>Restaurar ♻️</string></property></widget></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="buttonBottomLayout">
+         <item><widget class="QPushButton" name="btn_delete_forever"><property name="text"><string>Eliminar Definitivo 🗑️</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_complete"><property name="text"><string>Marcar Completada ✅</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_favorite"><property name="text"><string>Marcar Favorita ⭐</string></property></widget></item>
+        </layout>
+       </item>
       </layout>
      </widget>
     </item>
@@ -97,14 +100,27 @@
       <property name="title">
        <string>🔎 Filtros</string>
       </property>
-      <layout class="QHBoxLayout" name="filterLayout">
-       <item><widget class="QPushButton" name="btn_filter"><property name="text"><string>Filtrar por fecha 📆</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_show_deleted"><property name="text"><string>Ver Eliminadas 🗑️</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_show_completed"><property name="text"><string>Ver Completadas ✅</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_show_pending"><property name="text"><string>Ver Pendientes 🔴</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_show_high"><property name="text"><string>Alta ⚡</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_show_medium"><property name="text"><string>Media ⚠️</string></property></widget></item>
-       <item><widget class="QPushButton" name="btn_show_low"><property name="text"><string>Baja 🐢</string></property></widget></item>
+      <layout class="QVBoxLayout" name="filterMainLayout">
+
+       <!-- Fila superior -->
+       <item>
+        <layout class="QHBoxLayout" name="filterTopLayout">
+         <item><widget class="QPushButton" name="btn_filter"><property name="text"><string>Filtrar por fecha 📆</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_show_deleted"><property name="text"><string>Ver Eliminadas 🗑️</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_show_completed"><property name="text"><string>Ver Completadas ✅</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_show_pending"><property name="text"><string>Ver Pendientes 🔴</string></property></widget></item>
+        </layout>
+       </item>
+
+       <!-- Fila inferior -->
+       <item>
+        <layout class="QHBoxLayout" name="filterBottomLayout">
+         <item><widget class="QPushButton" name="btn_show_high"><property name="text"><string>Alta ⚡</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_show_medium"><property name="text"><string>Media ⚠️</string></property></widget></item>
+         <item><widget class="QPushButton" name="btn_show_low"><property name="text"><string>Baja 🐢</string></property></widget></item>
+        </layout>
+       </item>
+
       </layout>
      </widget>
     </item>

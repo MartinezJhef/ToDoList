@@ -164,7 +164,3 @@ class TaskController:
         if task and task.eliminada:
             task.eliminada = False
             self.session.commit()
-
-
-
-
