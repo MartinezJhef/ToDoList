@@ -93,18 +93,6 @@ class TaskController:
             task.eliminada = True
             self.session.commit()
 
-    def restore_task(self, task_id):
-        """
-        Restaurar una tarea eliminada (HU017).
-
-        Args:
-            task_id (int): ID de la tarea.
-        """
-        task = self.session.query(Task).get(task_id)
-        if task and task.eliminada:
-            task.eliminada = False
-            self.session.commit()
-
     def complete_task(self, task_id):
         """
         Marcar una tarea como completada (HU005).
@@ -171,3 +159,10 @@ class TaskController:
             (Task.titulo.ilike(f"%{keyword}%") | Task.descripcion.ilike(f"%{keyword}%")),
             Task.eliminada.is_(False)
         ).all()
+    def restore_task(self, task_id):
+        task = self.session.query(Task).get(task_id)
+        if task and task.eliminada:
+            task.eliminada = False
+            self.session.commit()
+
+

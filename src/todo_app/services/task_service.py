@@ -9,7 +9,7 @@ Historias de Usuario: HU005 - HU018
 """
 
 from todo_app.repositories.controllers import TaskController
-
+from todo_app.models.models import Tarea
 
 class TaskService:
     """Servicio que encapsula las operaciones de negocio sobre tareas."""
@@ -120,3 +120,14 @@ class TaskService:
             list: Lista de tareas que coincidan con la búsqueda.
         """
         return self.controller.search_tasks(keyword)
+    def restore_task(self, task_id):
+        self.controller.restore_task(task_id)
+
+    def permanently_delete_task(self, task_id):
+        """Elimina una tarea de la base de datos de forma permanente."""
+        self.controller.session.query(Tarea).filter_by(id=task_id).delete()
+        self.controller.session.commit()
+
+
+
+

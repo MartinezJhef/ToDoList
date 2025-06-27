@@ -24,6 +24,12 @@ class MainWindow(QMainWindow):
         self.btn_filter.clicked.connect(self.filter_tasks)
         self.btn_complete.clicked.connect(self.complete_task)
         self.btn_favorite.clicked.connect(self.favorite_task)
+        self.btn_restore.clicked.connect(self.restore_task)
+        self.btn_show_deleted.clicked.connect(self.show_deleted_tasks)
+        self.btn_delete_forever.clicked.connect(self.permanently_delete_task)
+
+
+
         
 
 
@@ -43,6 +49,7 @@ class MainWindow(QMainWindow):
 
         self.service.create_task(title, description, due_date, priority, category)
         self.load_tasks()
+        self.clear_inputs()
 
     def load_tasks(self, tasks=None):
         if tasks is None:
@@ -105,6 +112,49 @@ class MainWindow(QMainWindow):
         task_id = item.data(1000)
         self.service.favorite_task(task_id, is_favorite=True)
         self.load_tasks()
+
+    def restore_task(self):
+        """Restaura una tarea eliminada."""
+        item = self.list_tasks.currentItem()
+        if item is None:
+            QMessageBox.information(self, "Info", "Selecciona una tarea eliminada para restaurar.")
+            return
+        task_id = item.data(1000)
+        self.service.restore_task(task_id)
+        self.load_tasks()
+
+    def show_deleted_tasks(self):
+        """Muestra solo las tareas eliminadas en la lista."""
+        deleted_tasks = self.service.get_tasks(include_deleted=True)
+        only_deleted = [t for t in deleted_tasks if t.eliminada]
+        self.load_tasks(only_deleted)
+    def clear_inputs(self):
+        """Limpia los campos del formulario de entrada."""
+        self.input_title.clear()
+        self.input_description.clear()
+        self.input_due_date.setDate(QDate.currentDate())
+        self.input_priority.setCurrentIndex(0)
+        self.input_category.setCurrentIndex(0)
+
+    def permanently_delete_task(self):
+        """Elimina permanentemente una tarea eliminada, con confirmación."""
+        item = self.list_tasks.currentItem()
+        if item is None:
+            QMessageBox.warning(self, "Aviso", "Selecciona una tarea eliminada para borrar definitivamente.")
+            return
+
+        reply = QMessageBox.question(
+            self,
+            "¿Eliminar definitivamente?",
+            "¿Estás seguro de que deseas eliminar esta tarea de forma permanente?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if reply == QMessageBox.Yes:
+            task_id = item.data(1000)
+            self.service.permanently_delete_task(task_id)
+            self.show_deleted_tasks()
+
     
 
 

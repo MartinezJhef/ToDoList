@@ -88,6 +88,20 @@
        </widget>
       </item>
 
+      <!-- Restaurar -->
+      <item>
+       <widget class="QPushButton" name="btn_restore">
+        <property name="text"><string>Restaurar ♻️</string></property>
+       </widget>
+      </item>
+
+      <!-- ✅ Nuevo botón: Eliminar definitivo -->
+      <item>
+       <widget class="QPushButton" name="btn_delete_forever">
+        <property name="text"><string>Eliminar Definitivo 🗑️</string></property>
+       </widget>
+      </item>
+
       <item>
        <widget class="QPushButton" name="btn_complete">
         <property name="text"><string>Marcar Completada ✅</string></property>
@@ -103,14 +117,23 @@
      </layout>
     </item>
 
-    <!-- 🔹 Filtro por fecha -->
+    <!-- 🔹 Filtro por fecha + Mostrar eliminadas -->
     <item>
      <layout class="QHBoxLayout" name="filterLayout">
+
       <item>
        <widget class="QPushButton" name="btn_filter">
         <property name="text"><string>Filtrar por fecha 📆</string></property>
        </widget>
       </item>
+
+      <!-- Botón para ver eliminadas -->
+      <item>
+       <widget class="QPushButton" name="btn_show_deleted">
+        <property name="text"><string>Ver Eliminadas 🗑️</string></property>
+       </widget>
+      </item>
+
      </layout>
     </item>
 
