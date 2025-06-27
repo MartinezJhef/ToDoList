@@ -1,4 +1,4 @@
-# 📝 To-Do List App gf
+# 📝 To-Do List App
 
 Una aplicación de lista de tareas desarrollada con **Python**, **PyQt5** y **SQLAlchemy**, que permite a los usuarios gestionar sus actividades diarias desde una interfaz gráfica moderna, intuitiva y funcional.
 
