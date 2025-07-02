@@ -86,7 +86,7 @@ Se abrirá la ventana principal para comenzar a gestionar tus tareas.
 
 ---
 
-🧪 **Pruebas Unitarias**
+## 🧪 **Pruebas Unitarias**
 
 El módulo `test_controllers.py` incluye un conjunto completo de **pruebas automatizadas** para validar la lógica del controlador de tareas (`TaskController`). Estas pruebas utilizan una base de datos **SQLite en memoria** para garantizar un entorno aislado y sin efectos colaterales sobre los datos reales.
 
