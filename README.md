@@ -84,7 +84,6 @@ Se abrirá la ventana principal para comenzar a gestionar tus tareas.
 
 ---
 
----
 
 ## 🧪 **Pruebas Unitarias**
 
