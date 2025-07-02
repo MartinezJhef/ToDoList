@@ -119,6 +119,8 @@ El módulo `test_controllers.py` incluye un conjunto completo de **pruebas autom
   - Repetidas eliminaciones o restauraciones.
   - Verificación de tareas ya completadas.
 
+---
+
 ### 📌 Ejecución de Pruebas
 
 Desde el directorio raíz `src`, ejecuta el siguiente comando:
