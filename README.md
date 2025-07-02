@@ -154,6 +154,13 @@ Esto ejecutará todos los casos usando una base de datos en memoria (`sqlite:///
 
 ---
 
+📄 **Documentación complementaria:**  
+
+Incluye backlog de producto, diagrama UML y prototipos de interfaz (GUIs).  
+👉 [Ver Documento de Google](https://docs.google.com/document/d/1UynbmVAwto1EdwsyijpDJ8e8eBIqFVwrLXx9mPvTj5c/edit?usp=sharing)
+
+---
+
 ## 👨‍💻 Autores
 
 - Martinez Jheferson  
