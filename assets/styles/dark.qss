@@ -1,15 +1,16 @@
 QMainWindow {
-    background-color: #0B1D51;
+    background-color: #0F0F0F;
 }
 
 QLabel, QGroupBox, QListWidget, QMessageBox, QPushButton, QComboBox, QDateEdit {
-    color: #FFE3A9;
+    color: #F4F4F4;
     font-size: 16px;
 }
 
 QLineEdit, QTextEdit, QComboBox, QDateEdit {
-    background-color: #725CAD;
-    color: #FFE3A9;
+    background-color: #232D3F;
+    color: #F4F4F4;
+    border: 1px solid #005B41;
     border-radius: 6px;
     padding: 6px;
     font-size: 14px;
@@ -17,107 +18,51 @@ QLineEdit, QTextEdit, QComboBox, QDateEdit {
 
 QLineEdit::placeholder,
 QTextEdit::placeholder {
-    color: #FFE3A9;
+    color: #8CA3AF;
 }
 
 QListWidget {
-    background-color: #725CAD;
-    color: #FFE3A9;
+    background-color: #232D3F;
+    color: #F4F4F4;
     border-radius: 6px;
     padding: 6px;
+    border: 1px solid #005B41;
 }
 
 QListWidget::item:selected {
-    background-color: #8CCDEB;
-    color: #0B1D51;
+    background-color: #008170;
+    color: #F4F4F4;
 }
 
+/* 🔹 Botones modernos */
 QPushButton {
-    background-color: #8CCDEB;
-    color: #0B1D51;
+    background-color: #005B41;
+    color: #F4F4F4;
     border: none;
     border-radius: 6px;
-    padding: 8px 12px;
+    padding: 8px 14px;
     font-weight: bold;
 }
 
 QPushButton:hover {
-    background-color: #A0E1F5;
+    background-color: #008170;
 }
 
-QPushButton#btn_delete,
-QPushButton#btn_delete_forever {
-    background-color: #FF5C5C;
-    color: #FFE3A9;
-}
-
-QPushButton#btn_delete:hover,
-QPushButton#btn_delete_forever:hover {
-    background-color: #FF7676;
-}
-
-QPushButton#btn_complete {
-    background-color: #57D785;
-    color: #0B1D51;
-}
-
-QPushButton#btn_complete:hover {
-    background-color: #6FE79A;
-}
-
-QPushButton#btn_favorite {
-    background-color: #FFD86E;
-    color: #0B1D51;
-}
-
-QPushButton#btn_favorite:hover {
-    background-color: #FFE3A9;
-}
-
-QPushButton#btn_filter,
-QPushButton#btn_show_deleted,
-QPushButton#btn_show_completed,
-QPushButton#btn_show_pending,
-QPushButton#btn_show_high,
-QPushButton#btn_show_medium,
-QPushButton#btn_show_low {
-    background-color: #8CCDEB;
-    color: #0B1D51;
-}
-
-QPushButton#btn_filter:hover,
-QPushButton#btn_show_deleted:hover,
-QPushButton#btn_show_completed:hover,
-QPushButton#btn_show_pending:hover,
-QPushButton#btn_show_high:hover,
-QPushButton#btn_show_medium:hover,
-QPushButton#btn_show_low:hover {
-    background-color: #A0E1F5;
-}
-
-QComboBox#input_priority,
-QComboBox#input_category {
-    background-color: #725CAD;
-    color: #FFE3A9;
-    border-radius: 6px;
-    padding: 6px;
-}
-
+/* 🔹 QMessageBox con coherencia visual */
 QMessageBox {
-    background-color: #725CAD;
-    color: #8CCDEB;
+    background-color: #232D3F;
+    color: #F4F4F4;
     font-size: 16px;
 }
 
-/* Botones dentro del QMessageBox */
 QMessageBox QPushButton {
-    background-color: #FFE3A9;
-    color: #0B1D51; /* O #725CAD si quieres mantener consistencia */
+    background-color: #005B41;
+    color: #F4F4F4;
     border-radius: 6px;
     padding: 6px 12px;
     font-weight: bold;
 }
 
 QMessageBox QPushButton:hover {
-    background-color: #FFF0C0; /* Versión más clara del botón */
+    background-color: #008170;
 }
