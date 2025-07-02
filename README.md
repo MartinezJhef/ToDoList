@@ -86,24 +86,47 @@ Se abrirá la ventana principal para comenzar a gestionar tus tareas.
 
 ---
 
-## 🧪 Pruebas Unitarias
+🧪 **Pruebas Unitarias**
 
-El módulo `test_controllers.py` cubre exhaustivamente la lógica del controlador de tareas (`TaskController`), utilizando una base de datos SQLite en memoria para asegurar un entorno aislado de prueba.
+El módulo `test_controllers.py` incluye un conjunto completo de **pruebas automatizadas** para validar la lógica del controlador de tareas (`TaskController`). Estas pruebas utilizan una base de datos **SQLite en memoria** para garantizar un entorno aislado y sin efectos colaterales sobre los datos reales.
 
 ### ✅ Funcionalidades Probadas
 
-- **Crear tareas:** Inserción y validación de atributos básicos.
-- **Leer tareas:** Recuperación de una o múltiples tareas.
-- **Actualizar tareas:** Modificación de título, descripción, fecha, prioridad y categoría.
-- **Eliminar tareas:** Eliminación lógica y restauración de tareas.
-- **Completar tareas:** Cambio de estado a completada.
-- **Marcar como favorita:** Activar y desactivar bandera de favorito.
-- **Buscar por palabra clave:** Búsqueda en título y descripción.
-- **Filtrado avanzado:** Por estado (`pendientes`, `completadas`), prioridad y categoría.
-- **Manejo de casos especiales:**
-  - Restauración de tareas no eliminadas.
-  - Creación sin categoría.
-  - Filtro por categoría exclusiva.
+- **Operaciones CRUD básicas**:
+  - Crear tareas con título, descripción y fecha límite.
+  - Obtener múltiples tareas o una en particular.
+  - Actualizar campos individuales o múltiples de una tarea.
+  - Eliminar tareas lógicamente y restaurarlas.
+
+- **Gestión de estado y etiquetas**:
+  - Completar tareas.
+  - Marcar o desmarcar como favoritas.
+  - Crear tareas sin categoría definida.
+  - Actualizar prioridad y categoría.
+
+- **Búsqueda y filtrado**:
+  - Búsqueda insensible a mayúsculas en título o descripción.
+  - Filtrar por estado (`pendientes`, `completadas`), prioridad (`baja`, `media`, `alta`) y categoría (`trabajo`, `hogar`, `estudio`).
+  - Combinaciones múltiples de filtros y casos sin coincidencias.
+  - Filtros inválidos y comportamiento esperado.
+
+- **Casos especiales y robustez**:
+  - Restaurar tareas no eliminadas.
+  - Crear tareas duplicadas.
+  - Intentar completar tareas ya eliminadas.
+  - Alternar entre favorito/no favorito.
+  - Actualizar campos parcialmente (solo título, por ejemplo).
+  - Agregar tareas con fechas vencidas.
+  - Repetidas eliminaciones o restauraciones.
+  - Verificación de tareas ya completadas.
+
+### 📌 Ejecución de Pruebas
+
+Desde el directorio raíz `src`, ejecuta el siguiente comando:
+
+```bash
+python -m todo_app.tests.test_controllers
+
 
 ### 📌 Ejecución de pruebas
 
