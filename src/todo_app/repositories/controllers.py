@@ -41,7 +41,7 @@ class TaskController:
 
     def get_tasks(self, include_deleted=False):
         """
-        Obtener todas las tareas activas o todas (HU010).
+        Obtener todas las tareas activas (HU010).
 
         Args:
             include_deleted (bool): Si es True, también incluye tareas eliminadas.
@@ -54,10 +54,9 @@ class TaskController:
             query = query.filter(Task.eliminada.is_(False))
         return query.all()
 
-    def update_task(self, task_id, title=None, description=None,
-                    due_date=None, prioridad=None, categoria=None):
+    def update_task(self, task_id, title=None, description=None, due_date=None, prioridad=None, categoria=None):
         """
-        Actualiza los campos de una tarea existente (HU008, HU009).
+        Actualiza los campos de una tarea existente (incluye prioridad y categoría).
 
         Args:
             task_id (int): ID de la tarea.
@@ -80,6 +79,7 @@ class TaskController:
             if categoria:
                 task.categoria = Categoria[categoria]
             self.session.commit()
+
 
     def delete_task(self, task_id):
         """
@@ -159,14 +159,7 @@ class TaskController:
             (Task.titulo.ilike(f"%{keyword}%") | Task.descripcion.ilike(f"%{keyword}%")),
             Task.eliminada.is_(False)
         ).all()
-
     def restore_task(self, task_id):
-        """
-        Restaurar una tarea previamente eliminada (HU018).
-
-        Args:
-            task_id (int): ID de la tarea.
-        """
         task = self.session.query(Task).get(task_id)
         if task and task.eliminada:
             task.eliminada = False
